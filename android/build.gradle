@@ -1,0 +1,71 @@
+group 'com.sensetime.mtrc'
+version '1.0'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+        maven { url "http://maven.bi.sensetime.com:8081/repository/bi_library_snapshots/" }
+        maven { url "http://maven.bi.sensetime.com:8081/repository/st_bi_snapshot/" }
+        maven { url "http://maven.bi.sensetime.com:8081/repository/bi_library_releases/" }
+        maven { url "http://maven.bi.sensetime.com:8081/repository/st_bi_release/" }
+        maven { url "http://maven.bi.sensetime.com:8081/repository/maven-mixed/" }
+        maven { url "https://repo.eclipse.org/content/repositories/paho-snapshots/" }
+
+        maven { url "http://172.20.52.130:8081/repository/mercury-snapshot/" }
+        maven { url "http://172.20.52.130:8081/repository/mercury-release/" }
+
+        maven { url "http://maven.opencloud.sensetime.com/repository/maven-release/" }
+        maven { url "http://maven.opencloud.sensetime.com/repository/maven-snapshots/" }
+
+        maven { url 'https://jitpack.io' }
+        google()
+        mavenCentral()
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+}
+
+dependencies {
+    api 'org.java-websocket:Java-WebSocket:1.5.1'
+    api 'org.webrtc:google-webrtc:1.0.1-SNAPSHOT'
+}
